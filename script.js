@@ -13,10 +13,12 @@ let seconds = 0;
 let score = 0;
 let selected_insect = {};
 
+// Start button
 start_btn.addEventListener('click', () => {
   screens[0].classList.add('up');
 });
 
+// Choose Insect Screen
 choose_insect_btn.forEach((btn) => {
   btn.addEventListener('click', () => {
     const img = btn.querySelector('img');
@@ -29,10 +31,12 @@ choose_insect_btn.forEach((btn) => {
   });
 });
 
+//  Start Game
 const startGame = () => {
   setInterval(increaseTime, 1000);
 };
 
+// Timer
 const increaseTime = () => {
   let m = Math.floor(seconds / 60);
   let s = seconds % 60;
@@ -43,6 +47,7 @@ const increaseTime = () => {
   seconds++;
 };
 
+// Create Insect
 const createInsect = () => {
   const insect = document.createElement('div');
   insect.classList.add('insect');
@@ -62,6 +67,7 @@ const createInsect = () => {
   game_container.appendChild(insect);
 };
 
+// Gets Random Location
 const getRandomLocation = () => {
   const width = window.innerWidth;
   const height = window.innerHeight;
@@ -70,6 +76,7 @@ const getRandomLocation = () => {
   return { x, y };
 };
 
+// Click on insect and remove
 function catchInsect() {
   increaseScore();
   this.classList.add('caught');
@@ -77,11 +84,13 @@ function catchInsect() {
   addInsects();
 }
 
+// Add More Insects
 function addInsects() {
   setTimeout(createInsect, 1000);
   setTimeout(createInsect, 1500);
 }
 
+// Update Scores per insect clicks
 function increaseScore() {
   score++;
   if (score > 39) {

@@ -94,6 +94,13 @@ h1 {
   position: relative;
 }
 
+/* .game-container .time-score {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+} */
+
 .game-container .time,
 .game-container .score {
   position: absolute;
